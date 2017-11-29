@@ -27,4 +27,5 @@ class TestWordBuilder(unittest.TestCase):
     def test_word_build_with_missing_pieces(self):
         word = "palavra"
         word_pieces = ['pa', 'la', 'v', 'a']
-        self.assertRaises(RuntimeError("Not enough letters in word pieces!"), self.wb.build(word=word, word_pieces=word_pieces))
+        self.assertRaises(RuntimeError,
+                          lambda: self.wb.build(word=word, word_pieces=word_pieces))
