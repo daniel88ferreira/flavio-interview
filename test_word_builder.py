@@ -20,8 +20,8 @@ class TestWordBuilder(unittest.TestCase):
 
     def test_word_build_long(self):
         word = "palavra"
-        word_pieces = [ 'la', 'pa', 'v', 'a', 'r']
-        expected = [1,0,2,4,3]
+        word_pieces = [ 'pa', 'p', 'al', 'av', 'ra', 'la', 'vr']
+        expected = [1,2,3,4]
         self.assertEqual(self.wb.build(word=word, word_pieces=word_pieces), expected)
 
     def test_word_build_with_missing_pieces(self):
@@ -29,3 +29,6 @@ class TestWordBuilder(unittest.TestCase):
         word_pieces = ['pa', 'la', 'v', 'a']
         self.assertRaises(RuntimeError,
                           lambda: self.wb.build(word=word, word_pieces=word_pieces))
+
+if __name__ == '__main__':
+    unittest.main()
